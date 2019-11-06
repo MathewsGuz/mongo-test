@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 public class User {
     
     @Id
+    
+    public String Id;
     public String nombre ;
+    
     public String apellido;
     public String correo;
     public Integer telefono;

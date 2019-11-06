@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.proyect.parking.entity.User;
 /**
  *
  * @author Guzman
  */
 @RestController
-@RequestMapping(value = "/register")
+@RequestMapping(value = "/user")
 @Service
 public class HayParkingApiController {
     
@@ -28,13 +28,14 @@ public class HayParkingApiController {
     UserServices app;
     
     /*No se se se deba cambiar el request body por json o manejar dtos*/
-    @RequestMapping(method = RequestMethod.POST)	
-    public ResponseEntity<?> registerUser(@RequestBody String text){
+    @RequestMapping(method = RequestMethod.POST, value="/register")	
+    public ResponseEntity<?> registerUser(@RequestBody User user){
         try {
-            //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/register -d '{"orderAmountsMap":{"HAMBURGER":2,"PIZAA":3,"BEER":2},"tableNumber":2}'
+            
+            //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/user/register -d '{"nombre":"estevan","apellido":"vargas","correo":"fakegmail.com","telefono":1234567,"placaCarro":"aaa888"}'
                 //registrar dato
                 //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/register -d 'hola diana'
-                app.registrarUsuario(text);
+                app.registrarUsuario(user);
                 return new ResponseEntity<>("Insercion a db",HttpStatus.CREATED);
         } catch (Exception ex) {
                 //Logger.getLogger(ChainServices.class.getName()).log(Level.SEVERE, null, ex);

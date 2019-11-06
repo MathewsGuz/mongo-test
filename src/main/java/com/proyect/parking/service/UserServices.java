@@ -6,7 +6,7 @@
 package com.proyect.parking.service;
 
 import com.proyect.parking.entity.UserRepository;
-import com.proyect.parking.entity.User
+import com.proyect.parking.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -23,11 +23,11 @@ public class UserServices implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Coneccion a la base de datos");
+        System.out.println("Coneccion a la base de datos 2019 2222 wowo");
     }
     
     //manejad dto u objeto directamente o json
-    public void registrarUsuario(String text){
-        repo.save(new User());
+    public void registrarUsuario(User user){
+        repo.save(user);
     }
 }
